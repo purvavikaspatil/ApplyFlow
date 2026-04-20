@@ -117,40 +117,6 @@ Open: `http://localhost:5173`
 npm run build
 ```
 
-## Firestore Security Rules (Recommended)
-
-Use user-scoped rules similar to:
-
-```txt
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
-
-      match /applications/{applicationId} {
-        allow read, write: if request.auth != null && request.auth.uid == userId;
-      }
-    }
-
-    match /{document=**} {
-      allow read, write: if false;
-    }
-  }
-}
-```
-
-## Deployment (Vercel)
-
-1. Push code to GitHub
-2. Import the repository in Vercel
-3. Keep Vite defaults:
-   - Build command: `npm run build`
-   - Output directory: `dist`
-4. Add your deployed domain in Firebase:
-   - Authentication -> Settings -> Authorized domains
-5. Ensure SPA route refresh support with `vercel.json` rewrite to `/`
-
 ## Future Improvements
 
 - Drag-and-drop between Kanban columns
@@ -158,4 +124,4 @@ service cloud.firestore {
 - Resume/job link attachments
 - Analytics trends over time
 - Export to CSV or PDF
->>>>>>> 1887adf (Update README with detailed project documentation.)
+
