@@ -45,4 +45,4 @@ Job seekers often manage applications across scattered spreadsheets, notes, and 
    ```
 
 5. Open your browser at:
-   - `http://localhost:5173`
+   - `apply-flow-smoky.vercel.app`
